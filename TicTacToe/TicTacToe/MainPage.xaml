@@ -3,23 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TicTacToe.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Grid HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+    
+        <!-- Label above the grid -->
+        <Label Text="Tic Tac Toe" FontSize="Large" HorizontalOptions="Center" Grid.Row="0" />
+
+        <Label x:Name="XActionText" Text="X player's turn" FontSize="Large" Grid.Row="1" HorizontalOptions="Center" TextColor="Red" Margin="0, 40, 0, 40" />
+
+        <!-- Grid for Tic Tac Toe -->
+        <Grid x:Name="BoardGrid" Grid.Row="2" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+        
+            <!-- Buttons for Tic Tac Toe cells -->
+            <Button Text="-" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked" BindingContext="0,0" />
+            <Button Text="-" Grid.Row="0" Grid.Column="1" Clicked="Button_Clicked" BindingContext="0,1" />
+            <Button Text="-" Grid.Row="0" Grid.Column="2" Clicked="Button_Clicked" BindingContext="0,2" />
+            <Button Text="-" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" BindingContext="1,0" />
+            <Button Text="-" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" BindingContext="1,1" />
+            <Button Text="-" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked" BindingContext="1,2" />
+            <Button Text="-" Grid.Row="2" Grid.Column="0" Clicked="Button_Clicked" BindingContext="2,0" />
+            <Button Text="-" Grid.Row="2" Grid.Column="1" Clicked="Button_Clicked" BindingContext="2,1" />
+            <Button Text="-" Grid.Row="2" Grid.Column="2" Clicked="Button_Clicked" BindingContext="2,2" />
+        </Grid>
+    
+        <!-- Label below the grid -->
+        <Label x:Name="OActionText" Text="O Player Wait" FontSize="Medium" HorizontalOptions="Center" Grid.Row="3" TextColor="Blue" Margin="0, 40, 0, 40" />
+        <Button Clicked="Reset_Pressed" Text="Reset" Grid.Row="4" BackgroundColor="Green" />
+    </Grid>
 
 </ContentPage>
 
